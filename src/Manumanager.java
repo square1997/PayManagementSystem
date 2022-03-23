@@ -1,10 +1,53 @@
 import java.util.Scanner;
 
 public class Manumanager {
-
+	
+	public static void addpay() {
+		Scanner input = new Scanner(System.in);
+		System.out.print("일한 장소 : "); 
+		String place = input.nextLine();    
+		System.out.println("일한 날짜");
+		System.out.print("년 : ");
+		int year = input.nextInt();
+		System.out.print("월 : ");
+		int month = input.nextInt();
+		System.out.print("일 : ");
+		int day = input.nextInt();
+		System.out.print("시급 : ");
+		int t_pay = input.nextInt();
+		System.out.print("일한 시간 : ");
+		int time = input.nextInt();
+		System.out.println("급여 수령 날짜");
+		System.out.print("년 : ");
+		int year_r = input.nextInt();
+		System.out.print("월 : ");
+		int month_r = input.nextInt();
+		System.out.print("일 : ");
+		int day_r = input.nextInt();
+	}
+	
+	public static void deletepay() {
+		Scanner input = new Scanner(System.in); // 임시 기능 구현
+		System.out.print("일한 장소 : "); 
+		String place = input.next();
+		
+	} 
+	
+	public static void viewpay() {
+		Scanner input = new Scanner(System.in); // 임시 기능 구현
+		System.out.print("일한 장소 : ");
+		String place = input.next();
+		
+	}
+	
+	public static void editpay() {
+		Scanner input = new Scanner(System.in); // 임시 기능 구현
+		System.out.print("일한 장소 : "); 
+		String place = input.next();
+		
+	}
+	
 	public static void main(String[] args) {
-		String place;
-		int year, month, day, t_pay, time, year_r, month_r, day_r;
 		int selectedMenuNum = 0;
 		Scanner input = new Scanner(System.in);
 		
@@ -19,32 +62,17 @@ public class Manumanager {
 				selectedMenuNum = input.nextInt();
 				switch(selectedMenuNum) {
 				case 1 :
-					System.out.print("일한 장소 : "); 
-					place = input.nextLine();    
-					System.out.println("일한 날짜");
-					System.out.print("년 : ");
-					year = input.nextInt();
-					System.out.print("월 : ");
-					month = input.nextInt();
-					System.out.print("일 : ");
-					day = input.nextInt();
-					System.out.print("시급 : ");
-					t_pay = input.nextInt();
-					System.out.print("일한 시간 : ");
-					time = input.nextInt();
-					System.out.println("급여 수령 날짜");
-					System.out.print("년 : ");
-					year_r = input.nextInt();
-					System.out.print("월 : ");
-					month_r = input.nextInt();
-					System.out.print("일 : ");
-					day_r = input.nextInt();
+					addpay();
+					break;
 				case 2 :
-					System.out.println("기능 추가 예정입니다.");
+					deletepay();
+					break;
 				case 3 :
-					System.out.println("기능 추가 예정입니다.");
+					editpay();
+					break;
 				case 4 :
-					System.out.println("기능 추가 예정입니다.");
+					viewpay();
+					break;
 				case 5 :
 					System.out.println();
 					continue;
