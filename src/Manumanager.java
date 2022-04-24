@@ -11,9 +11,9 @@ public class Manumanager {
 				System.out.println("1. Add Pay");
 				System.out.println("2. Delete Pay");
 				System.out.println("3. Edit Pay");
-				System.out.println("4. View Pay");
+				System.out.println("4. View Pays");
 				System.out.println("5. Exit");
-				System.out.print("Select Menu between 1-6 : ");
+				System.out.print("Select Menu between 1-5 : ");
 				selectedMenuNum = input.nextInt();
 				switch(selectedMenuNum) {
 				case 1 :
@@ -26,7 +26,7 @@ public class Manumanager {
 					payManager.editpay();
 					break;
 				case 4 :
-					payManager.viewpay();
+					payManager.viewpays();
 					break;
 				case 5 :
 					System.out.println("End the program.");
