@@ -3,14 +3,17 @@ package pay;
 import java.util.Scanner;
 
 public class PayInfo {
-	protected PlaceKind kind = PlaceKind.Convenience;
-	protected  String place, storeAddress;
+	protected PlaceKind  kind = PlaceKind.Convenience;
+	protected  String place, storeAddress, friedMachine, skind;
 	protected  int payId, year, month, day, t_pay, time, year_r,  month_r, day_r;
 		
 	public PayInfo() {
-
 	}
     
+	public PayInfo(PlaceKind kind) {
+		this.kind = kind;
+	}
+	
 	public PlaceKind getKind() {
 		return kind;
 	}
@@ -22,6 +25,12 @@ public class PayInfo {
 	}
 	public void setStoreAddress(String storeAddress) {
 		this.storeAddress = storeAddress;
+	}
+	public String getFriedMachine() {
+		return friedMachine;
+	}
+	public void setFriedMachine(String friedMachine) {
+		this.friedMachine = friedMachine;
 	}
 	public String getPlace() {
 		return place;
@@ -84,10 +93,21 @@ public class PayInfo {
 		this.day_r = day_r;
 	}
 
+	public void placeChoose() {
+		switch(this.kind) {
+		case Convenience:
+			skind = "편의점";
+			break;
+		case Cafe:
+			skind = "카페";
+			break;
+		}
+	}
 	
 	public void printPayInfo() {
 		System.out.println("------------------------------------------------------------------------------------------------------");
 		System.out.println("PAY ID : " + payId);
+		System.out.println("직종 : " + skind);
 		System.out.println("일한 장소 : " + place);
 		System.out.println("점포명 : " + storeAddress);
 		System.out.println("일한 날짜 : " + year + "-" + month + "-" + day + "\n" + "시급 : " + t_pay);

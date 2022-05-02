@@ -1,7 +1,9 @@
 import java.util.Scanner;
 
 import pay.CafePay;
+import pay.ConveniencePay;
 import pay.PayInfo;
+import pay.PlaceKind;
 
 import java.util.ArrayList;
 public class PayManager {
@@ -22,21 +24,23 @@ public class PayManager {
 			System.out.println("업종 선택 : ");
 			kind = input.nextInt();
 			if (kind == 1) {
-				payInfo = new PayInfo();
+				payInfo = new ConveniencePay(PlaceKind.Convenience);
 				payInfo.getUserInput(input);
 				pays.add(payInfo);
+				payInfo.placeChoose();
 				payInfo.printPayInfo();
 				break;
 			}
 			else if (kind == 2) {
-				payInfo = new CafePay();
+				payInfo = new CafePay(PlaceKind.Cafe);
 				payInfo.getUserInput(input);
 				pays.add(payInfo);
+				payInfo.placeChoose();
 				payInfo.printPayInfo();
 				break;		
 			}
 			else {
-				System.out.println("1 ~ 3까지의 숫자를 입력해주세요.");
+				System.out.println("1 ~ 2까지의 숫자를 입력해주세요.");
 			}
 		}
 	}

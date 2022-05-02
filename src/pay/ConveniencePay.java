@@ -2,12 +2,11 @@ package pay;
 
 import java.util.Scanner;
 
-public class CafePay extends PayInfo {
+public class ConveniencePay extends PayInfo{
 	
-	public CafePay(PlaceKind kind) {
+	public ConveniencePay(PlaceKind kind) {
 		super(kind);
 	}
-	
 	
 	public void getUserInput(Scanner input) {
 		System.out.print("입력하는 PAY 기록에 대한 ID를 지정해주세요(정수) : ");
@@ -18,18 +17,20 @@ public class CafePay extends PayInfo {
 		String place = input.next(); 
 		this.setPlace(place);
 		
+		System.out.print("점포명 : "); 
+		String storeAddress = input.next(); 
+		this.setStoreAddress(storeAddress);
+		
 		char answer = 'c';
 		while(answer != 'y' || answer != 'n' || answer != 'Y' || answer != 'N') {
-			System.out.print("개인 카페인가요?(y/n) : "); 
+			System.out.print("튀김기가 존재하나요?(y/n) : "); 
 			answer = input.next().charAt(0); 
 			if (answer == 'y' || answer == 'Y') {
-				this.setStoreAddress("");
+				this.setFriedMachine("튀김기 사용 가게");
 				break;
 			}
 			else if (answer == 'n' || answer == 'N') {
-				System.out.print("점포명 : "); 
-				String storeAddress = input.next(); 
-				this.setStoreAddress(storeAddress);
+				this.setFriedMachine("튀김기 미사용 가게");
 				break;
 			}
 			else {
@@ -66,5 +67,18 @@ public class CafePay extends PayInfo {
 		System.out.print("일 : ");
 		int day_r = input.nextInt();
 		this.setDay_r(day_r);
+	}
+
+		public void printPayInfo() {
+			System.out.println("------------------------------------------------------------------------------------------------------");
+			System.out.println("PAY ID : " + payId);
+			System.out.println("직종 : " + skind);
+			System.out.println("일한 장소 : " + place);
+			System.out.println("점포명 : " + storeAddress);
+			System.out.println("일한 날짜 : " + year + "-" + month + "-" + day + "\n" + "시급 : " + t_pay);
+			System.out.println("일한 시간 : " + time);
+			System.out.println("급여 수령 날짜 : " + year_r + "-" + month_r + "-" + day_r);
+			System.out.println("튀김기 존재 여부 : " + friedMachine);
+			System.out.println("------------------------------------------------------------------------------------------------------");
 	}
 }
