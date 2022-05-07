@@ -2,7 +2,7 @@ package pay;
 
 import java.util.Scanner;
 
-public class ConveniencePay extends PayInfo{
+public class ConveniencePay extends PayInfo implements PayInput{
 	
 	public ConveniencePay(PlaceKind kind) {
 		super(kind);

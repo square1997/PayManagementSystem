@@ -2,7 +2,7 @@ package pay;
 
 import java.util.Scanner;
 
-public class CafePay extends PayInfo {
+public class CafePay extends PayInfo implements PayInput {
 	
 	public CafePay(PlaceKind kind) {
 		super(kind);
@@ -66,5 +66,17 @@ public class CafePay extends PayInfo {
 		System.out.print("일 : ");
 		int day_r = input.nextInt();
 		this.setDay_r(day_r);
+	}
+	
+	public void printPayInfo() {
+		System.out.println("------------------------------------------------------------------------------------------------------");
+		System.out.println("PAY ID : " + payId);
+		System.out.println("직종 : " + skind);
+		System.out.println("일한 장소 : " + place);
+		System.out.println("점포명 : " + storeAddress);
+		System.out.println("일한 날짜 : " + year + "-" + month + "-" + day + "\n" + "시급 : " + t_pay);
+		System.out.println("일한 시간 : " + time);
+		System.out.println("급여 수령 날짜 : " + year_r + "-" + month_r + "-" + day_r);
+		System.out.println("------------------------------------------------------------------------------------------------------");
 	}
 }

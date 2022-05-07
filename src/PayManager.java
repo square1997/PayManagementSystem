@@ -3,12 +3,13 @@ import java.util.Scanner;
 import pay.CafePay;
 import pay.ConveniencePay;
 import pay.PayInfo;
+import pay.PayInput;
 import pay.PlaceKind;
 
 import java.util.ArrayList;
 public class PayManager {
 	Scanner input;
-	ArrayList<PayInfo> pays = new  ArrayList<PayInfo>();
+	ArrayList<PayInput> pays = new  ArrayList<PayInput>();
 	
 	PayManager(Scanner input) {
 		this.input = input;
@@ -16,7 +17,7 @@ public class PayManager {
 	
 	public void addpay() {
 		int kind = 0;
-		PayInfo payInfo;
+		PayInput payInput;
 		while(kind != 1 && kind != 2) {
 			System.out.println("업종을 선택해주세요");
 			System.out.println("1. 편의점");
@@ -24,19 +25,19 @@ public class PayManager {
 			System.out.println("업종 선택 : ");
 			kind = input.nextInt();
 			if (kind == 1) {
-				payInfo = new ConveniencePay(PlaceKind.Convenience);
-				payInfo.getUserInput(input);
-				pays.add(payInfo);
-				payInfo.placeChoose();
-				payInfo.printPayInfo();
+				payInput = new ConveniencePay(PlaceKind.Convenience);
+				payInput.getUserInput(input);
+				pays.add(payInput);
+				payInput.placeChoose();
+				payInput.printPayInfo();
 				break;
 			}
 			else if (kind == 2) {
-				payInfo = new CafePay(PlaceKind.Cafe);
-				payInfo.getUserInput(input);
-				pays.add(payInfo);
-				payInfo.placeChoose();
-				payInfo.printPayInfo();
+				payInput = new CafePay(PlaceKind.Cafe);
+				payInput.getUserInput(input);
+				pays.add(payInput);
+				payInput.placeChoose();
+				payInput.printPayInfo();
 				break;		
 			}
 			else {
@@ -77,7 +78,7 @@ public class PayManager {
 		System.out.print("PAY ID : "); 
 		int id = input.nextInt();
 		for (int i = 0; i<pays.size(); i++) {
-			PayInfo payInfo = pays.get(i);
+			PayInput payInput = pays.get(i);
 			if (pays.get(i).getPayId() == id) {
 				int num = 0;
 				while(num != 7) {
@@ -94,13 +95,13 @@ public class PayManager {
 					if(num == 1) {
 						System.out.print("PAY ID 입력(수정) : "); 
 						int edit1 = input.nextInt();
-						payInfo.setPayId(edit1);
+						payInput.setPayId(edit1);
 						System.out.println("PAY ID 수정 : " + edit1); 
 					}
 					else if(num == 2) {
 						System.out.print("일한 장소(수정) : "); 
 						String edit2 = input.next();
-						payInfo.setPlace(edit2);
+						payInput.setPlace(edit2);
 						System.out.println("일한 장소 수정 : " + edit2); 
 					}
 					else if(num == 3) {
@@ -110,21 +111,21 @@ public class PayManager {
 						int edit4 = input.nextInt();
 						System.out.print("일 : ");
 						int edit5 = input.nextInt();
-						payInfo.setYear(edit3);
-						payInfo.setMonth(edit4);
-						payInfo.setDay(edit5);
+						payInput.setYear(edit3);
+						payInput.setMonth(edit4);
+						payInput.setDay(edit5);
 						System.out.println("일한 날짜 수정 : " + edit3 + "-" + edit4 + "-" + edit5); 
 					}
 					else if(num == 4) {
 						System.out.print("시급 입력(수정) : "); 
 						int edit6 = input.nextInt();
-						payInfo.setT_pay(edit6);
+						payInput.setT_pay(edit6);
 						System.out.println("시급 수정 : " + edit6); 
 					}
 					else if(num == 5) {
 						System.out.print("일한 시간 입력(수정) : "); 
 						int edit7 = input.nextInt();
-						payInfo.setTime(edit7);
+						payInput.setTime(edit7);
 						System.out.println("일한 시간 수정 : " + edit7); 
 					}
 					else if(num == 6) {
@@ -134,9 +135,9 @@ public class PayManager {
 						int edit9 = input.nextInt();
 						System.out.print("일 : ");
 						int edit10 = input.nextInt();
-						payInfo.setYear_r(edit8);
-						payInfo.setMonth_r(edit9);
-						payInfo.setDay_r(edit10);
+						payInput.setYear_r(edit8);
+						payInput.setMonth_r(edit9);
+						payInput.setDay_r(edit10);
 						System.out.println("급여 수령 날짜 수정 : " + edit8 + "-" + edit9 + "-" + edit10);
 					}
 					else {
