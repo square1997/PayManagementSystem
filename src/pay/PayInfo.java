@@ -2,7 +2,7 @@ package pay;
 
 import java.util.Scanner;
 
-public  abstract class PayInfo {
+public  abstract class PayInfo implements PayInput{
 	protected PlaceKind  kind = PlaceKind.Convenience;
 	protected  String place, storeAddress, friedMachine, skind;
 	protected  int payId, year, month, day, t_pay, time, year_r,  month_r, day_r;
@@ -96,13 +96,56 @@ public  abstract class PayInfo {
 	public void placeChoose() {
 		switch(this.kind) {
 		case Convenience:
-			skind = "편의점";
+			this.skind = "편의점";
 			break;
 		case Cafe:
-			skind = "카페";
+			this.skind = "카페";
 			break;
 		}
 	}
 	
 	public abstract void printPayInfo();
+	
+	public void inputPayId(Scanner input) {
+		int payId = input.nextInt();
+		this.setPayId(payId);
+	}
+	public void inputPayPlace(Scanner input) {
+		String place = input.next(); 
+		this.setPlace(place);
+	}
+	public void inputAddress(Scanner input) {
+		String storeAddress = input.next(); 
+		this.setStoreAddress(storeAddress);
+	}
+	public void inputWorkDay(Scanner input) {
+		System.out.print("년 : ");
+		int year = input.nextInt();
+		this.setYear(year);
+		System.out.print("월 : ");
+		int month = input.nextInt();
+		this.setMonth(month);
+		System.out.print("일 : ");
+		int day = input.nextInt();
+		this.setDay(day);
+	}
+	public void inputHourlyWage(Scanner input) {
+		int t_pay = input.nextInt();
+		this.setT_pay(t_pay);
+	}
+	public void inputTime(Scanner input) {
+		int time = input.nextInt();
+		this.setTime(time);
+	}
+	public void inputDateOfPayment(Scanner input) {
+		System.out.print("년 : ");
+		int year_r = input.nextInt();
+		this.setYear_r(year_r);
+		System.out.print("월 : ");
+		int month_r = input.nextInt();
+		this.setMonth_r(month_r);
+		System.out.print("일 : ");
+		int day_r = input.nextInt();
+		this.setDay_r(day_r);
+	}
 }
