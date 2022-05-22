@@ -2,14 +2,19 @@ import java.util.Scanner;
 
 import pay.CafePay;
 import pay.ConveniencePay;
-import pay.PayInfo;
 import pay.PayInput;
 import pay.PlaceKind;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
-public class PayManager{
-	Scanner input;
+public class PayManager implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8985844917158622207L;
+	
+	transient Scanner input;
 	ArrayList<PayInput> pays = new  ArrayList<PayInput>();
 	
 	PayManager(Scanner input) {
@@ -100,8 +105,6 @@ public class PayManager{
 	}
 	
 	public  void viewpays() {
-		System.out.print("PAY ID : "); 
-		int id = input.nextInt();
 		for (int i = 0; i<pays.size(); i++) {
 			pays.get(i).printPayInfo();
 		}

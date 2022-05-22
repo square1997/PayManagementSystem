@@ -1,8 +1,14 @@
 package pay;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
-public  abstract class PayInfo implements PayInput{
+public  abstract class PayInfo implements PayInput, Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8609195836073973805L;
+	
 	protected PlaceKind  kind = PlaceKind.Convenience;
 	protected  String place, storeAddress, friedMachine, skind;
 	protected  int payId, year, month, day, t_pay, time, year_r,  month_r, day_r;
