@@ -1,3 +1,4 @@
+package manager;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -6,6 +7,8 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+
+import GUI.WindowFrame;
 import log.EventLogger;
 
 public class Manumanager {
@@ -17,6 +20,7 @@ public class Manumanager {
 		if (payManager == null) {
 			payManager = new PayManager(input);
 		}
+		WindowFrame frame = new WindowFrame(payManager);
 		selectMenu(input, payManager);
 		putObject(payManager, "payManager.ser");
 		}

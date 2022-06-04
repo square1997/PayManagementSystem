@@ -7,9 +7,12 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
-public class PayAdder extends JFrame{
+public class PayAdder extends JPanel{
 	
-	public PayAdder() {
+	WindowFrame frame;
+	
+	public PayAdder(WindowFrame frame) {
+		this.frame = frame;
 		JPanel panel = new JPanel();
 		panel.setLayout(new SpringLayout());
 		
@@ -66,8 +69,8 @@ public class PayAdder extends JFrame{
 		
 		SpringUtilities.makeCompactGrid(panel, 9, 2, 6, 6, 6, 6);
 		
-		this.setSize(300, 300);
-		this.setContentPane(panel);
+	
+		this.add(panel);
 		this.setVisible(true);
 		
 		

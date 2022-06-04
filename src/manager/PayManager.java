@@ -1,7 +1,9 @@
+package manager;
 import java.util.Scanner;
 
 import pay.CafePay;
 import pay.ConveniencePay;
+import pay.PayInfo;
 import pay.PayInput;
 import pay.PlaceKind;
 
@@ -108,6 +110,14 @@ public class PayManager implements Serializable{
 		for (int i = 0; i<pays.size(); i++) {
 			pays.get(i).printPayInfo();
 		}
+	}
+	
+	public int size() {
+		return pays.size();
+	}
+	
+	public PayInput get(int index) {
+		return (PayInfo) pays.get(index);
 	}
 	
 	public void editpay() {

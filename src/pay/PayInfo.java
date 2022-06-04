@@ -102,10 +102,10 @@ public  abstract class PayInfo implements PayInput, Serializable{
 	public void placeChoose() {
 		switch(this.kind) {
 		case Convenience:
-			this.skind = "편의점";
+			this.skind = "Convenience";
 			break;
 		case Cafe:
-			this.skind = "카페";
+			this.skind = "Cafe";
 			break;
 		}
 	}
@@ -153,5 +153,15 @@ public  abstract class PayInfo implements PayInput, Serializable{
 		System.out.print("일 : ");
 		int day_r = input.nextInt();
 		this.setDay_r(day_r);
+	}
+	
+	public String getWorkDay() {
+		String workdate = this.year+"-"+this.month+"-"+this.day;
+		return workdate;
+	}
+	
+	public String getDateOfPayment() {
+		String dateOfPayment = this.year_r+"-"+this.month_r+"-"+this.day_r;
+		return dateOfPayment;
 	}
 }
